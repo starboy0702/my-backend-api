@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Representatives</title>
+</head>
+<body>
+  <h1 id="heading">Representatives</h1>
+  <div id="representatives"></div>
+
+  <script>
+    console.log("Frontend JavaScript loaded");
+
+    // Fetch all representatives from the server (from all localities)
+    fetch('http://localhost:3000/representatives')
+      .then(response => {
+        console.log("Received response from backend");
+        return response.json();
+      })
+      .then(data => {
+        console.log('Data received:', data);
+        const representativesDiv = document.getElementById('representatives');
+        const heading = document.getElementById('heading');
+
+        if (data.message) {
+          // If no data is found, show the message
+          representativesDiv.innerHTML = data.message;
+          heading.innerHTML = "No representatives found"; // Update the heading when no data is found
+        } else {
+          // Otherwise, loop through the data and display it
+          representativesDiv.innerHTML = data.map(representative => {
+            return `
+              <div>
+                <h2>${representative.name}</h2>
+                <p>Designation: ${representative.designation}</p>
+                <p>Phone: ${representative.phone}</p>
+                <p>Email: ${representative.email}</p>
+              </div>
+            `;
+          }).join('');
+          heading.innerHTML = "Representatives from All Localities"; // Update the heading to reflect all localities
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching representatives:', error);
+      });
+  </script>
+</body>
+</html>
+
+
+
+
