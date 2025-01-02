@@ -11,7 +11,17 @@ Tech Stack
 Backend: Node.js, Express.js
 Database: MongoDB Atlas
 Frontend: HTML, CSS, JavaScript (basic form-based interaction)
+Installation
+Clone the Repository
 
+
+git clone https://github.com/your-username/indian-representatives-api.git  
+cd indian-representatives-api  
+Install Dependencies
+
+
+npm install  
+Set Up MongoDB Atlas
 
 Create a MongoDB Atlas account and set up a cluster.
 Whitelist your IP address.
@@ -20,20 +30,19 @@ Copy your connection string and replace <username>, <password>, and <cluster-url
 Create a .env File
 Inside the root folder, create a .env file and add:
 
-env
-Copy code
 PORT=3000  
 MONGO_URI=mongodb+srv://<username>:<password>@<cluster-url>/representatives_db  
 Start the Server
 
+npm start  
+Visit http://localhost:3000 to view the application.
 
 API Endpoints
 1. Get Representatives by Locality
 Endpoint: GET /representatives/:locality
 Description: Fetches representatives for the specified locality.
 Response Example:
-json
-Copy code
+
 [  
   {  
     "name": "John Doe",  
@@ -42,12 +51,11 @@ Copy code
     "email": "john.doe@example.com"  
   }  
 ]  
-2. Add Representative
+3. Add Representative
 Endpoint: POST /representatives/:locality
 Description: Adds a representative to an existing locality or creates a new locality if it doesn’t exist.
 Request Body Example:
-json
-Copy code
+
 {  
   "name": "Jane Smith",  
   "designation": "Councillor",  
@@ -78,8 +86,8 @@ Feel free to contribute or report issues! 😊
 ![Screenshot 2025-01-02 165316](https://github.com/user-attachments/assets/66307e2c-0b88-4e73-88a1-4e4ec9f32602)
 ![Screenshot 2025-01-02 165944](https://github.com/user-attachments/assets/ed3c513d-99ea-424b-8d11-95137f088863)
 
-more work can be done on the front end and also more data can be added , i think the main issue the project was targeting was to organize the decentralized information and insufficient updates . More work can has to
-be done in this project wherein we can make the project easy to use for non tech users . i have deployed the project using render but there is some issue which i am not able to find out but you can still check it out
+more work can be done on the front end and also more data can be added ,  the main issue the project was targeting was to organize the decentralized information and insufficient updates . More work can has to
+be done in this project wherein we can make the project easy to use for non tech users . i have deployed the project using render , you can check it out 
 here -
 https://my-backend-api-5-y09q.onrender.com
 
